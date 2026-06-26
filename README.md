@@ -1,12 +1,10 @@
-# North-Star-Support-Bot
-
-# 🌟 North Star Support Bot
+#  North Star Support Bot
 
 **North Star Support Bot** is a conversational AI assistant for a mock North American outdoor apparel and camping gear e-commerce store. Powered by **LangChain**, **LangGraph**, and **Google Gemini (`gemini-2.5-flash`)**, the bot leverages graph-based state management and persistent memory to deliver a smart, contextual customer service experience.
 
 ---
 
-## 🌲 Features
+##  Features
 
 *   **Order Tracking:** Automatically intercepts messages containing order numbers (e.g., `#111`, `#222`, `#333`) and queries a local database to inject the shipping status directly into the prompt.
 *   **Returns & Exchanges:** Explains the store's 30-day return policy and provides a direct returns portal link.
@@ -17,7 +15,7 @@
 
 ---
 
-## ⚙️ Project Structure
+##  Project Structure
 
 *   `north_star_langchain_bot.py`: The main Python script implementing the state graph, agent definition, and interactive command-line interface (CLI).
 *   `requirements.txt`: Specifies library dependencies, including `langchain`, `langgraph`, and `langchain-google-genai`.
@@ -25,7 +23,7 @@
 
 ---
 
-## 🚀 Setup & Installation
+##  Setup & Installation
 
 ### 1. Prerequisites
 Ensure you have **Python 3.10+** installed on your system.
@@ -55,7 +53,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🔑 API Key Configuration
+##  API Key Configuration
 
 To interact with the Google Gemini model, you need a Google Gemini API Key. 
 
@@ -73,7 +71,7 @@ To interact with the Google Gemini model, you need a Google Gemini API Key.
 
 ---
 
-## 💻 Running the Bot
+##  Running the Bot
 
 Start the interactive CLI session by running:
 ```bash
@@ -87,7 +85,7 @@ python north_star_langchain_bot.py
 
 ---
 
-## 🛠️ How it Works Under the Hood
+##  How it Works Under the Hood
 
 ### LangGraph State Management
 The bot utilizes a custom state graph defined with `StateGraph`:
@@ -106,7 +104,7 @@ graph TD
 ### Order Lookup Injection
 Before sending user queries to the Gemini LLM, a regex pattern detects any numbers with 3 or more digits:
 *   If found, the lookup checks a local mock database (`ORDER_DB`):
-    *   **`111`**: Shipped — arriving tomorrow 🚚
-    *   **`222`**: Processing — ships within 24 hours 📦
-    *   **`333`**: Delivered ✅
+    *   **`111`**: Shipped — arriving tomorrow 
+    *   **`222`**: Processing — ships within 24 hours 
+    *   **`333`**: Delivered 
 *   The status is appended to the message context before being processed, allowing the LLM to give accurate, real-time tracking updates.
